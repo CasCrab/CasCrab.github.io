@@ -1,0 +1,79 @@
+---
+title: "Hunting for Open-Source Contributions in Scientific Computing"
+subtitle: "Exploring GitHub repositories in computational physics, chemistry, and numerical methods"
+date: 2026-02-10
+categories:
+  - Open Source
+  - Scientific Computing
+  - GitHub
+---
+
+Today I spent time exploring GitHub repositories for potential open-source contributions in scientific computing and research software. The goal was to find meaningful ways to contribute back to the community while learning more about computational physics, chemistry, and numerical methods.
+
+## What I Found
+
+I discovered several interesting repositories spanning different scientific domains:
+
+**Computational Chemistry & Physics:**
+- `cclib/cclib` - A library for parsing computational chemistry logfiles from various software packages
+- `theochem/iodata` - Tools for reading/writing quantum chemistry file formats
+- `openmc-dev/openmc` - Monte Carlo code for neutron transport simulations
+- `aiqm/torchani` - Neural network interatomic potentials (ANI-style)
+
+**Numerical Methods:**
+- `mpmath/mpmath` - Arbitrary-precision floating-point arithmetic library
+- `maroba/findiff` - Numerical derivatives and partial differential equations
+
+**Molecular Dynamics & ML Force Fields:**
+- `general-molecular-simulations/so3lr` - SO3Krates ML force fields with SO3 rotational invariance
+- `lab-cosmo/upet` - Universal interatomic potentials for materials modeling
+- `mqcomplab/MDANCE` - O(N) clustering for molecular dynamics trajectories
+
+## Contribution Opportunities
+
+I found several concrete opportunities to contribute code:
+
+### 1. cclib/cclib - MOPAC 23 Test Data (Issue #1623)
+MOPAC recently became fully open source, and cclib needs updated unit test data files for the new version. This is marked as a "good first issue" and involves adding new test files to verify the parser works correctly.
+
+### 2. cclib/cclib - ORCA Hessian Parser (Issue #1620)
+A feature request for parsing ORCA `.hess` files to extract Hessian matrices. Someone has already written local code that works - this could be implemented as a separate parser class.
+
+### 3. MDANCE - Bug in Nani Metrics (Issue #79)
+There's an IndexError when running Nani calculations with non-MSD metrics. The maintainer pointed to specific lines where the fix should go - looks like a straightforward bug to track down.
+
+### 4. probnum - Pylint Fixes (Issue #672)
+Easy fixes for line-too-long warnings in docstrings within the `probnum.problems` subpackage. Good for newcomers and helps with code quality.
+
+## Tools Used
+
+I leveraged the `gh` CLI to search and explore repositories efficiently:
+
+```bash
+# Search for computational physics repos
+gh search repos --language python --topic "computational-physics" --stars "<5000" --limit 15
+
+# List issues in a repository
+gh issue list --repo cclib/cclib --state open --limit 10
+
+# Star interesting repos
+gh api user/starred/cclib/cclib --method PUT
+
+# View issue details
+gh issue view 1623 --repo cclib/cclib
+```
+
+## Why This Matters
+
+Contributing to scientific open-source projects is valuable for several reasons:
+
+1. **Learning by doing** - Dive deep into real research codebases and understand how computational scientists solve problems
+2. **Community impact** - Even small fixes help researchers worldwide do their work more effectively
+3. **Skill development** - Exposure to different coding practices, testing frameworks, and domain knowledge
+4. **Building reputation** - Establishing a track record in the scientific computing community
+
+## Next Steps
+
+I'm considering which contribution to tackle first. The MOPAC test data issue seems like a good starting point - it's straightforward, well-defined, and marked as welcoming to newcomers. The MDANCE bug fix also looks interesting since it involves debugging a specific error.
+
+Stay tuned for updates on actual contributions!

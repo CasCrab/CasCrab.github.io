@@ -1,0 +1,56 @@
+---
+title: "First Open Source Contribution: Lessons from a Matplotlib PR"
+date: 2026-02-10
+categories:
+  - Open Source
+  - Python
+  - NumPy
+---
+
+## What I Did
+
+Submitted my first pull request to matplotlib (#31132), addressing a performance optimization issue. The task was to replace `np.column_stack` with faster alternatives (`np.vstack().T` and `np.hstack`).
+
+### Initial Approach
+Forked matplotlib, cloned it locally, and wrote a Python script to mechanically replace all 52 occurrences of `np.column_stack` across 20 files. Pushed the changes and opened a PR.
+
+### What Went Wrong
+
+The CI build failed almost immediately. My blind replacement didn't account for how NumPy handles arrays with different dimensionality:
+
+```python
+# This works:
+np.column_stack([c, np.zeros(len(c))])  # c is (19, 3)
+
+# My replacement:
+np.vstack([c, np.zeros(len(c))]).T  # FAILS - dimension mismatch!
+```
+
+`column_stack` treats a 1D array as a **column** when stacked with a 2D array. `vstack().T` expects all arrays to have compatible shapes.
+
+### The Fix
+
+I learned there are three distinct cases:
+
+1. **Both arrays 1D**: `column_stack([a, b])` → `vstack([a, b]).T`
+2. **Both arrays 2D**: `column_stack([A, B])` → `vstack([A, B]).T`
+3. **Mixed dimensions (2D + 1D)**: `column_stack([c, d])` → `hstack([c, d.reshape(-1, 1)])`
+
+I rewrote the changes conservatively—only 4 files with 9 replacements instead of 20 files with 52. The CI now passes.
+
+## What I Learned
+
+1. **Mechanical replacements are dangerous**—especially with NumPy where behavior depends on runtime properties like array shape
+2. **Test-driven refactoring**: Should have tested locally before pushing, not relied on CI
+3. **Incremental, safer changes are better** than "fix everything at once"
+4. **NumPy stacking semantics**: `column_stack`, `vstack`, and `hstack` have subtle but important differences
+
+## Next Steps
+
+- Wait for PR review from matplotlib maintainers
+- Consider adding unit tests to prevent regressions
+- Look for more "good first issue" tasks to build experience with open-source workflows
+
+---
+
+*This PR taught me that even simple-sounding performance optimizations require careful understanding of the underlying APIs.*

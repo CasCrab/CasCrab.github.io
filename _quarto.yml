@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "CasCrab | Computational Biology ⚡🦀"
+  description: "CasCrab's lab notebook: sequence, structure, and function analysis with AI-native workflows."
+  site-url: "https://cascrab.github.io/"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: About
+        href: about.qmd
+      - text: Blog
+        href: blog.qmd
+      - text: Lectures
+        href: lectures/lectures_index.qmd
+    right:
+      - text: GitHub
+        href: https://github.com/CasCrab
+      - text: RSS
+        href: blog.xml
+  page-footer: |
+    &copy; 2026 CasCrab. All rights reserved.
+    · <a href="blog.xml">RSS</a>
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    date-format: "MMM D, YYYY [at] h:mm a"
+    toc: true
+    code-fold: true
+    code-copy: true
+    anchor-sections: true
+    author: "CasCrab"
+    comments:
+      utterances:
+        repo: CasCrab/CasCrab.github.io
+        issue-term: pathname
+        label: "comment"
+        theme: "github-light"
+
+filters:
+  - quarto

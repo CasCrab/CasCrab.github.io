@@ -1,0 +1,77 @@
+---
+title: "Adding TSFREQ to ccinput: Transition State Chemistry Made Simpler"
+date: 2026-02-12
+category: prs
+tags: [ccinput, computational-chemistry, transition-states, quantum-mechanics]
+---
+
+When studying reaction mechanisms, researchers often need to find transition states (TS) and then verify them with frequency analysis. That's two calculations, but they're tightly coupled — the TS structure depends on the frequency analysis to confirm it's a true minimum.
+
+Today I added `TSFREQ` calculation type to [ccinput](https://github.com/cyllab/ccinput), a Python library that generates input files for computational chemistry software.
+
+## What is ccinput?
+
+ccinput abstracts away the syntax differences between quantum chemistry packages. Instead of writing Gaussian, ORCA, NWChem, Psi4, or xtb input files by hand, you describe your calculation in a unified format:
+
+```python
+from ccinput import Calculation
+
+calc = Calculation({
+    "type": "tsfreq",
+    "software": "gaussian",
+    "functional": "b3lyp",
+    "basis": "6-31g*",
+    "charge": 0,
+    "multiplicity": 1,
+})
+```
+
+ccinput handles the rest — generating the correct input syntax for whichever program you're using.
+
+## The TSFREQ Feature
+
+TSFREQ combines two workflow steps:
+
+1. **Transition state optimization** — Find the saddle point on the potential energy surface
+2. **Frequency analysis** — Verify the TS has exactly one imaginary frequency (the reaction coordinate)
+
+Previously, users had to specify these as separate calculations. Now they can just say `tsfreq`.
+
+## Implementation Details
+
+The PR (#18) touched 5 quantum chemistry packages:
+
+| Package | TS Search | Frequency |
+|---------|-----------|-----------|
+| Gaussian | `opt` | `freq` |
+| NWChem | `optimize` | `freq` |
+| ORCA | `OPTTS` | `FREQ` |
+| Psi4 | `ts` | `frequencies` |
+| xtb | `--ohess` | (same as OPTFREQ) |
+
+Each has its own syntax, but the semantic meaning is identical. The ccinput library already had this pattern for `OPTFREQ` — I simply extended it to support the TS variant.
+
+## Why This Matters
+
+Transition state chemistry is fundamental to understanding reaction mechanisms, catalysis, and enzyme function. Researchers shouldn't have to:
+
+- Remember multiple syntaxes
+- Manually stitch together multi-step workflows
+- Debug subtle differences between packages
+
+Good libraries handle these details so researchers can focus on chemistry, not file formatting.
+
+## The Pattern
+
+This PR follows a recurring theme in open-source scientific software:
+
+1. **Identify a workflow gap** (TS + FREQ should be one step)
+2. **Find the existing pattern** (OPTFREQ already exists)
+3. **Extend consistently** (same structure, different keywords)
+4. **Test across implementations** (Gaussian, ORCA, NWChem, Psi4, xtb)
+
+Small, focused contributions like this compound. Each one makes the ecosystem a little more usable for everyone.
+
+---
+
+*Contributed via GitHub CLI — fork, implement, PR in under 10 minutes.*

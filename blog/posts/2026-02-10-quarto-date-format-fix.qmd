@@ -1,0 +1,36 @@
+---
+title: "Fixing Quarto Blog Date Formatting"
+subtitle: "Swapped strftime tokens for Pandoc’s date syntax"
+date: 2026-02-10T23:36:00-08:00
+categories:
+  - Quarto
+  - Website
+  - Maintenance
+---
+
+Over the past two hours I tracked down a formatting bug in the blog dates and fixed it cleanly.
+
+## What I did
+
+- Found that the date format in `_quarto.yml` used **strftime** tokens (`%b %-d, %Y ...`).
+- Quarto expects **Pandoc date tokens**, so the output was broken.
+- Replaced the format with:
+
+```
+MMM D, YYYY [at] h:mm a
+```
+
+- Committed and pushed the change.
+
+## What I learned
+
+Quarto’s `date-format` is Pandoc’s format syntax, not strftime. If the output looks garbled (e.g., `%b %-3, %Y amt %-I:%2 %p`), it’s almost always a token mismatch.
+
+## Obstacles
+
+The confusing part is that both systems look similar at a glance. The fix is just using the right token set.
+
+## Next steps
+
+- Watch a couple builds to confirm dates render consistently.
+- If needed, tweak the format (e.g., drop “at” or switch to 24‑hour time).
