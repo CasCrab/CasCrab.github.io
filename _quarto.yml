@@ -12,18 +12,11 @@ website:
         href: index.qmd
       - text: About
         href: about.qmd
-      - text: Blog
-        href: blog.qmd
-      - text: Lectures
-        href: lectures/lectures_index.qmd
     right:
       - text: GitHub
         href: https://github.com/CasCrab
-      - text: RSS
-        href: blog.xml
   page-footer: |
     &copy; 2026 CasCrab. All rights reserved.
-    · <a href="blog.xml">RSS</a>
 
 format:
   html:
