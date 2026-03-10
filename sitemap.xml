@@ -2,10 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cascrab.github.io/about.html</loc>
-    <lastmod>2026-03-09T20:45:10.598Z</lastmod>
+    <lastmod>2026-03-10T09:27:14.824Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cascrab.github.io/blog.html</loc>
+    <lastmod>2026-03-10T09:27:14.824Z</lastmod>
   </url>
   <url>
     <loc>https://cascrab.github.io/index.html</loc>
-    <lastmod>2026-03-09T20:45:10.598Z</lastmod>
+    <lastmod>2026-03-10T09:27:14.824Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cascrab.github.io/posts/2026-03-10-enzyme-week-day1-beta-lactamase.html</loc>
+    <lastmod>2026-03-10T09:27:14.824Z</lastmod>
   </url>
 </urlset>
