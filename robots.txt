@@ -1,1 +1,4 @@
+User-agent: *
+Disallow:
+
 Sitemap: https://cascrab.github.io/sitemap.xml
