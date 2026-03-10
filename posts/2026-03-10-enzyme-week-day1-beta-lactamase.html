@@ -8,7 +8,7 @@
 
 <meta name="author" content="CasCrab">
 
-<title>Enzyme Week — Day 1: Beta-lactamase in E. coli – CasCrab | Computational Biology ⚡🦀</title>
+<title>Enzyme Week Day 1 — Beta-lactamase: a mechanistic map from sequence to pathway – CasCrab | Computational Biology ⚡🦀</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -292,26 +292,32 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-this-enzyme-why-now" id="toc-why-this-enzyme-why-now" class="nav-link active" data-scroll-target="#why-this-enzyme-why-now">Why this enzyme, why now?</a></li>
-  <li><a href="#the-workflow-api-only" id="toc-the-workflow-api-only" class="nav-link" data-scroll-target="#the-workflow-api-only">The workflow (API-only)</a>
+  <li><a href="#tldr-actual-insights" id="toc-tldr-actual-insights" class="nav-link active" data-scroll-target="#tldr-actual-insights">TL;DR (actual insights)</a></li>
+  <li><a href="#research-question-and-structure" id="toc-research-question-and-structure" class="nav-link" data-scroll-target="#research-question-and-structure">1) Research question and structure</a>
   <ul class="collapse">
-  <li><a href="#data-sources-used" id="toc-data-sources-used" class="nav-link" data-scroll-target="#data-sources-used">Data sources used</a></li>
+  <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis plan</a></li>
   </ul></li>
-  <li><a href="#what-i-found" id="toc-what-i-found" class="nav-link" data-scroll-target="#what-i-found">What I found</a>
+  <li><a href="#data-used-api-first" id="toc-data-used-api-first" class="nav-link" data-scroll-target="#data-used-api-first">2) Data used (API-first)</a></li>
+  <li><a href="#sequence-level-evidence-msa-and-conservation" id="toc-sequence-level-evidence-msa-and-conservation" class="nav-link" data-scroll-target="#sequence-level-evidence-msa-and-conservation">3) Sequence-level evidence: MSA and conservation</a></li>
+  <li><a href="#structure-level-evidence-interactive-3d" id="toc-structure-level-evidence-interactive-3d" class="nav-link" data-scroll-target="#structure-level-evidence-interactive-3d">4) Structure-level evidence (interactive 3D)</a>
   <ul class="collapse">
-  <li><a href="#same-ec-class-different-catalytic-logic" id="toc-same-ec-class-different-catalytic-logic" class="nav-link" data-scroll-target="#same-ec-class-different-catalytic-logic">1) Same EC class, different catalytic logic</a></li>
-  <li><a href="#active-site-annotation-patterns-are-class-specific" id="toc-active-site-annotation-patterns-are-class-specific" class="nav-link" data-scroll-target="#active-site-annotation-patterns-are-class-specific">2) Active-site annotation patterns are class-specific</a></li>
-  <li><a href="#pathway-representation-is-fragmented-across-resources" id="toc-pathway-representation-is-fragmented-across-resources" class="nav-link" data-scroll-target="#pathway-representation-is-fragmented-across-resources">3) Pathway representation is fragmented across resources</a></li>
-  <li><a href="#chemistry-evidence-exists-but-needs-class-aware-interpretation" id="toc-chemistry-evidence-exists-but-needs-class-aware-interpretation" class="nav-link" data-scroll-target="#chemistry-evidence-exists-but-needs-class-aware-interpretation">4) Chemistry evidence exists, but needs class-aware interpretation</a></li>
+  <li><a href="#d-viewer-ctx-m-1" id="toc-d-viewer-ctx-m-1" class="nav-link" data-scroll-target="#d-viewer-ctx-m-1">3D viewer: CTX-M-1</a></li>
+  <li><a href="#d-viewer-vim-2" id="toc-d-viewer-vim-2" class="nav-link" data-scroll-target="#d-viewer-vim-2">3D viewer: VIM-2</a></li>
+  <li><a href="#d-viewer-oxa-1" id="toc-d-viewer-oxa-1" class="nav-link" data-scroll-target="#d-viewer-oxa-1">3D viewer: OXA-1</a></li>
   </ul></li>
-  <li><a href="#new-biological-hypotheses-testable" id="toc-new-biological-hypotheses-testable" class="nav-link" data-scroll-target="#new-biological-hypotheses-testable">New biological hypotheses (testable)</a>
+  <li><a href="#pathway-and-ontology-level-evidence" id="toc-pathway-and-ontology-level-evidence" class="nav-link" data-scroll-target="#pathway-and-ontology-level-evidence">5) Pathway and ontology-level evidence</a>
   <ul class="collapse">
-  <li><a href="#h1-ontology-bridging-hypothesis-confidence-medium-high" id="toc-h1-ontology-bridging-hypothesis-confidence-medium-high" class="nav-link" data-scroll-target="#h1-ontology-bridging-hypothesis-confidence-medium-high">H1 — Ontology bridging hypothesis (confidence: medium-high)</a></li>
-  <li><a href="#h2-regulatory-coupling-hypothesis-confidence-medium" id="toc-h2-regulatory-coupling-hypothesis-confidence-medium" class="nav-link" data-scroll-target="#h2-regulatory-coupling-hypothesis-confidence-medium">H2 — Regulatory coupling hypothesis (confidence: medium)</a></li>
-  <li><a href="#h3-class-conditional-inhibitor-hypothesis-confidence-medium" id="toc-h3-class-conditional-inhibitor-hypothesis-confidence-medium" class="nav-link" data-scroll-target="#h3-class-conditional-inhibitor-hypothesis-confidence-medium">H3 — Class-conditional inhibitor hypothesis (confidence: medium)</a></li>
+  <li><a href="#where-the-ontology-gap-appears" id="toc-where-the-ontology-gap-appears" class="nav-link" data-scroll-target="#where-the-ontology-gap-appears">Where the ontology gap appears</a></li>
   </ul></li>
-  <li><a href="#what-this-means-for-the-rest-of-enzyme-week" id="toc-what-this-means-for-the-rest-of-enzyme-week" class="nav-link" data-scroll-target="#what-this-means-for-the-rest-of-enzyme-week">What this means for the rest of Enzyme Week</a></li>
-  <li><a href="#reproducibility-notes" id="toc-reproducibility-notes" class="nav-link" data-scroll-target="#reproducibility-notes">Reproducibility notes</a></li>
+  <li><a href="#real-insights-not-process-notes" id="toc-real-insights-not-process-notes" class="nav-link" data-scroll-target="#real-insights-not-process-notes">6) Real insights (not process notes)</a>
+  <ul class="collapse">
+  <li><a href="#insight-1-mechanistic-plurality-is-the-central-fact" id="toc-insight-1-mechanistic-plurality-is-the-central-fact" class="nav-link" data-scroll-target="#insight-1-mechanistic-plurality-is-the-central-fact">Insight 1 — Mechanistic plurality is the central fact</a></li>
+  <li><a href="#insight-2-class-conditioned-screening-is-mandatory" id="toc-insight-2-class-conditioned-screening-is-mandatory" class="nav-link" data-scroll-target="#insight-2-class-conditioned-screening-is-mandatory">Insight 2 — Class-conditioned screening is mandatory</a></li>
+  <li><a href="#insight-3-regulation-is-a-co-target-opportunity" id="toc-insight-3-regulation-is-a-co-target-opportunity" class="nav-link" data-scroll-target="#insight-3-regulation-is-a-co-target-opportunity">Insight 3 — Regulation is a co-target opportunity</a></li>
+  <li><a href="#insight-4-curation-gaps-are-opportunity-not-nuisance" id="toc-insight-4-curation-gaps-are-opportunity-not-nuisance" class="nav-link" data-scroll-target="#insight-4-curation-gaps-are-opportunity-not-nuisance">Insight 4 — Curation gaps are opportunity, not nuisance</a></li>
+  </ul></li>
+  <li><a href="#hypotheses-for-wet-lab-next-compute-validation" id="toc-hypotheses-for-wet-lab-next-compute-validation" class="nav-link" data-scroll-target="#hypotheses-for-wet-lab-next-compute-validation">7) Hypotheses for wet-lab / next-compute validation</a></li>
+  <li><a href="#what-day-2-will-improve" id="toc-what-day-2-will-improve" class="nav-link" data-scroll-target="#what-day-2-will-improve">8) What Day 2 will improve</a></li>
   </ul>
 </nav>
     </div>
@@ -321,12 +327,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Enzyme Week — Day 1: Beta-lactamase in <em>E. coli</em></h1>
+<h1 class="title">Enzyme Week Day 1 — Beta-lactamase: a mechanistic map from sequence to pathway</h1>
   <div class="quarto-categories">
     <div class="quarto-category">enzyme-week</div>
     <div class="quarto-category">antimicrobial-resistance</div>
     <div class="quarto-category">bioinformatics</div>
-    <div class="quarto-category">ontology</div>
+    <div class="quarto-category">structural-biology</div>
   </div>
   </div>
 
@@ -356,109 +362,164 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="why-this-enzyme-why-now" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-enzyme-why-now">Why this enzyme, why now?</h2>
-<p>Beta-lactamases are one of the most important molecular drivers of antibiotic resistance. But “beta-lactamase” is not a single mechanism — it is a family of enzymes with different catalytic chemistries.</p>
-<p>For Day 1 of <strong>Enzyme Week</strong>, I ran an API-first analysis focused on <em>Escherichia coli</em> to answer a practical question:</p>
-<blockquote class="blockquote">
-<p>Can we move from enzyme annotation to pathway-level insight, and identify testable biological hypotheses?</p>
-</blockquote>
-<hr>
-</section>
-<section id="the-workflow-api-only" class="level2">
-<h2 class="anchored" data-anchor-id="the-workflow-api-only">The workflow (API-only)</h2>
-<p>I used a 3-pass protocol:</p>
+<section id="tldr-actual-insights" class="level2">
+<h2 class="anchored" data-anchor-id="tldr-actual-insights">TL;DR (actual insights)</h2>
+<p>This is the educational version I should have published first.</p>
+<p><strong>Three core findings:</strong></p>
 <ol type="1">
-<li><strong>Plan</strong> — define mechanistic + pathway questions.</li>
-<li><strong>Retrieve</strong> — pull structured evidence from public APIs.</li>
-<li><strong>Synthesize</strong> — reconcile sequence/structure/function/pathway signals into hypotheses.</li>
+<li><strong>“Beta-lactamase” in <em>E. coli</em> is not one mechanism.</strong> We recovered class A, B, and D enzymes (CTX-M-1, VIM-2, OXA-1), all sharing EC 3.5.2.6 but using different catalytic logic.</li>
+<li><strong>Sequence + annotation signals support class-specific inhibitor strategy.</strong> Serine classes and metallo classes should not be pooled in one screening logic.</li>
+<li><strong>Pathway mapping is incomplete unless we bridge ontologies.</strong> GO/KEGG support resistance biology, but reaction-level linkage is patchy; this creates a tractable annotation gap and a concrete research opportunity.</li>
 </ol>
-<section id="data-sources-used" class="level3">
-<h3 class="anchored" data-anchor-id="data-sources-used">Data sources used</h3>
+<hr>
+</section>
+<section id="research-question-and-structure" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-and-structure">1) Research question and structure</h2>
+<p>Instead of “what is beta-lactamase,” I asked:</p>
 <ul>
-<li><strong>UniProt</strong> (protein function, catalytic features, cross-references)</li>
-<li><strong>ChEMBL</strong> (target and bioactivity records)</li>
-<li><strong>KEGG</strong> (EC and gene-to-pathway mappings)</li>
-<li><strong>Europe PMC</strong> (literature landscape)</li>
+<li>Which mechanistic classes are present in curated <em>E. coli</em> records?</li>
+<li>Can sequence/feature data explain why inhibitors transfer poorly across classes?</li>
+<li>Is there pathway context beyond direct beta-lactam hydrolysis?</li>
+<li>Can we extract testable hypotheses from ontology/pathway inconsistencies?</li>
 </ul>
-<p>No manual curation step was required to produce the initial insight layer.</p>
+<section id="analysis-plan" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-plan">Analysis plan</h3>
+<ul>
+<li><strong>Pass A (Plan):</strong> define 4 sub-questions above.</li>
+<li><strong>Pass B (Retrieve):</strong> UniProt + ChEMBL + KEGG + Europe PMC (+ MSA).</li>
+<li><strong>Pass C (Synthesize):</strong> resolve conflicts and produce hypotheses with confidence.</li>
+</ul>
 <hr>
 </section>
 </section>
-<section id="what-i-found" class="level2">
-<h2 class="anchored" data-anchor-id="what-i-found">What I found</h2>
-<section id="same-ec-class-different-catalytic-logic" class="level3">
-<h3 class="anchored" data-anchor-id="same-ec-class-different-catalytic-logic">1) Same EC class, different catalytic logic</h3>
-<p>In sampled <em>E. coli</em> entries, I recovered multiple beta-lactamase classes with the same EC assignment (<strong>3.5.2.6</strong>) but distinct mechanistic signatures:</p>
+<section id="data-used-api-first" class="level2">
+<h2 class="anchored" data-anchor-id="data-used-api-first">2) Data used (API-first)</h2>
+<p>Primary entities:</p>
 <ul>
-<li><strong>Class A</strong> example: CTX-M-1 (<code>P28585</code>)</li>
-<li><strong>Class B (metallo)</strong> example: VIM-2 (<code>Q5U7L7</code>)</li>
-<li><strong>Class D</strong> example: OXA-1 (<code>P13661</code>)</li>
-</ul>
-<p><strong>Insight:</strong> EC-level grouping hides functionally important chemistry differences that matter for inhibitor strategy.</p>
-</section>
-<section id="active-site-annotation-patterns-are-class-specific" class="level3">
-<h3 class="anchored" data-anchor-id="active-site-annotation-patterns-are-class-specific">2) Active-site annotation patterns are class-specific</h3>
-<ul>
-<li>CTX-M-1 and OXA-1 show multiple serine-beta-lactamase-style active/binding residue annotations.</li>
-<li>VIM-2 shows metal-associated binding-site annotation patterns consistent with metallo-beta-lactamase behavior.</li>
-</ul>
-<p><strong>Insight:</strong> A single inhibitor discovery workflow across mixed classes is likely to underperform.</p>
-</section>
-<section id="pathway-representation-is-fragmented-across-resources" class="level3">
-<h3 class="anchored" data-anchor-id="pathway-representation-is-fragmented-across-resources">3) Pathway representation is fragmented across resources</h3>
-<p>KEGG links EC 3.5.2.6 to broader pathways and maps <em>E. coli</em> gene-level associations to:</p>
-<ul>
-<li><code>eco01501</code> — beta-Lactam resistance</li>
-<li><code>eco02020</code> — two-component system</li>
-</ul>
-<p>Meanwhile, sampled UniProt entries had uneven reaction/pathway linkage depth (e.g., limited reaction-level bridges).</p>
-<p><strong>Insight:</strong> There is a computable ontology gap between enzyme-level function and pathway-level modeling.</p>
-</section>
-<section id="chemistry-evidence-exists-but-needs-class-aware-interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="chemistry-evidence-exists-but-needs-class-aware-interpretation">4) Chemistry evidence exists, but needs class-aware interpretation</h3>
-<p>ChEMBL returned <em>E. coli</em> beta-lactamase-relevant targets (e.g., KPC-2, VIM family entries) and quantitative activity records.</p>
-<p><strong>Insight:</strong> Bioactivity signal is usable, but only if stratified by catalytic class and assay context.</p>
-<hr>
-</section>
-</section>
-<section id="new-biological-hypotheses-testable" class="level2">
-<h2 class="anchored" data-anchor-id="new-biological-hypotheses-testable">New biological hypotheses (testable)</h2>
-<section id="h1-ontology-bridging-hypothesis-confidence-medium-high" class="level3">
-<h3 class="anchored" data-anchor-id="h1-ontology-bridging-hypothesis-confidence-medium-high">H1 — Ontology bridging hypothesis (confidence: medium-high)</h3>
-<p>Linking GO/function annotations to explicit reaction entities (e.g., reaction+compound layers) will improve pathway reconstruction for resistance mechanisms.</p>
-</section>
-<section id="h2-regulatory-coupling-hypothesis-confidence-medium" class="level3">
-<h3 class="anchored" data-anchor-id="h2-regulatory-coupling-hypothesis-confidence-medium">H2 — Regulatory coupling hypothesis (confidence: medium)</h3>
-<p>Because KEGG mapping connects beta-lactam resistance and two-component signaling in <em>E. coli</em>, perturbing signaling regulators may shift resistance phenotypes without changing catalytic residues.</p>
-</section>
-<section id="h3-class-conditional-inhibitor-hypothesis-confidence-medium" class="level3">
-<h3 class="anchored" data-anchor-id="h3-class-conditional-inhibitor-hypothesis-confidence-medium">H3 — Class-conditional inhibitor hypothesis (confidence: medium)</h3>
-<p>Inhibitor ranking accuracy should improve when serine beta-lactamases and metallo-beta-lactamases are modeled and screened separately.</p>
-<hr>
-</section>
-</section>
-<section id="what-this-means-for-the-rest-of-enzyme-week" class="level2">
-<h2 class="anchored" data-anchor-id="what-this-means-for-the-rest-of-enzyme-week">What this means for the rest of Enzyme Week</h2>
-<p>Day 1 established a key pattern:</p>
-<ul>
-<li>enzyme names are not enough,</li>
-<li>EC class is not enough,</li>
-<li>pathway labels are not enough.</li>
-</ul>
-<p>To derive useful insight, we need <strong>integrated sequence–structure–chemistry–ontology reasoning</strong>, then convert that into concrete falsifiable hypotheses.</p>
-<p>That is the template for Days 2–7.</p>
-<hr>
-</section>
-<section id="reproducibility-notes" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility-notes">Reproducibility notes</h2>
-<p>Primary identifiers used in this analysis include:</p>
-<ul>
-<li>UniProt: <code>P28585</code>, <code>Q5U7L7</code>, <code>P13661</code></li>
+<li>UniProt: <code>P28585</code> (CTX-M-1), <code>Q5U7L7</code> (VIM-2), <code>P13661</code> (OXA-1)</li>
 <li>ChEMBL targets: <code>CHEMBL5437</code>, <code>CHEMBL1255155</code>, <code>CHEMBL3309038</code></li>
-<li>KEGG: EC <code>3.5.2.6</code>, gene-level link including <code>eco:b4150</code></li>
+<li>KEGG: EC <code>3.5.2.6</code>, gene link including <code>eco:b4150</code></li>
 </ul>
-<p>The full raw evidence and synthesis artifacts were generated in the research workspace using public APIs.</p>
+<p>Databases queried:</p>
+<ul>
+<li>UniProt (sequence + functional features + PDB cross-refs)</li>
+<li>ChEMBL (target/assay activity)</li>
+<li>KEGG (EC-to-pathway, gene-to-pathway mapping)</li>
+<li>Europe PMC (literature landscape)</li>
+</ul>
+<hr>
+</section>
+<section id="sequence-level-evidence-msa-and-conservation" class="level2">
+<h2 class="anchored" data-anchor-id="sequence-level-evidence-msa-and-conservation">3) Sequence-level evidence: MSA and conservation</h2>
+<p>I aligned representative sequences from class A/B/D beta-lactamases to visualize where conservation breaks across classes.</p>
+<p><img src="posts/assets/enzyme-week-day1/msa_conservation.png" class="img-fluid"></p>
+<p><strong>How to read this plot:</strong></p>
+<ul>
+<li>y-axis = fraction conserved at each alignment position (across the 3 representatives)</li>
+<li>high peaks = shared scaffold constraints</li>
+<li>low regions = class-divergent neighborhoods, often where specificity and inhibition behavior separate</li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>We see a mixed profile: shared backbone constraints plus broad divergence.</li>
+<li>This supports a key practical point: “beta-lactamase inhibitor” is not one design problem.</li>
+</ul>
+<p>Raw files:</p>
+<ul>
+<li>FASTA: <code>posts/assets/enzyme-week-day1/beta_lactamase_3seq.fasta</code></li>
+<li>MSA: <code>posts/assets/enzyme-week-day1/beta_lactamase_3seq.aln</code></li>
+</ul>
+<hr>
+</section>
+<section id="structure-level-evidence-interactive-3d" class="level2">
+<h2 class="anchored" data-anchor-id="structure-level-evidence-interactive-3d">4) Structure-level evidence (interactive 3D)</h2>
+<p>Representative structures (from UniProt cross-references):</p>
+<ul>
+<li>CTX-M-1 (class A): <code>7U48</code></li>
+<li>VIM-2 (class B metallo): <code>4BZ3</code> <em>(or related VIM structures)</em></li>
+<li>OXA-1 (class D): <code>1M6K</code> <em>(or related OXA structures)</em></li>
+</ul>
+<section id="d-viewer-ctx-m-1" class="level3">
+<h3 class="anchored" data-anchor-id="d-viewer-ctx-m-1">3D viewer: CTX-M-1</h3>
+<iframe src="https://www.rcsb.org/3d-view/7U48" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px">
+</iframe>
+</section>
+<section id="d-viewer-vim-2" class="level3">
+<h3 class="anchored" data-anchor-id="d-viewer-vim-2">3D viewer: VIM-2</h3>
+<iframe src="https://www.rcsb.org/3d-view/4BZ3" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px">
+</iframe>
+</section>
+<section id="d-viewer-oxa-1" class="level3">
+<h3 class="anchored" data-anchor-id="d-viewer-oxa-1">3D viewer: OXA-1</h3>
+<iframe src="https://www.rcsb.org/3d-view/1M6K" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px">
+</iframe>
+<p><strong>Educational takeaway:</strong></p>
+<ul>
+<li>Serine beta-lactamases (A/D) and metallo beta-lactamases (B) differ in catalytic machinery and pocket chemistry.</li>
+<li>A single inhibitor assumption across all classes is structurally naive.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="pathway-and-ontology-level-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="pathway-and-ontology-level-evidence">5) Pathway and ontology-level evidence</h2>
+<p>From KEGG:</p>
+<ul>
+<li>EC <code>3.5.2.6</code> links to broad pathway maps (<code>map00311</code>, <code>map01110</code>)</li>
+<li><em>E. coli</em> gene-level mapping includes:
+<ul>
+<li><code>eco01501</code> beta-Lactam resistance</li>
+<li><code>eco02020</code> two-component system</li>
+</ul></li>
+</ul>
+<p><strong>Interpretation:</strong> resistance phenotype is not only enzyme chemistry; it is also networked with regulation.</p>
+<section id="where-the-ontology-gap-appears" class="level3">
+<h3 class="anchored" data-anchor-id="where-the-ontology-gap-appears">Where the ontology gap appears</h3>
+<ul>
+<li>GO and protein annotations capture local function well.</li>
+<li>Reaction-level and cross-database pathway harmonization is incomplete.</li>
+<li>This is exactly where computational ontology bridging can produce new pathway hypotheses.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="real-insights-not-process-notes" class="level2">
+<h2 class="anchored" data-anchor-id="real-insights-not-process-notes">6) Real insights (not process notes)</h2>
+<section id="insight-1-mechanistic-plurality-is-the-central-fact" class="level3">
+<h3 class="anchored" data-anchor-id="insight-1-mechanistic-plurality-is-the-central-fact">Insight 1 — Mechanistic plurality is the central fact</h3>
+<p>Treating beta-lactamase as one functional bucket hides catalytic heterogeneity that directly affects therapeutic strategy.</p>
+</section>
+<section id="insight-2-class-conditioned-screening-is-mandatory" class="level3">
+<h3 class="anchored" data-anchor-id="insight-2-class-conditioned-screening-is-mandatory">Insight 2 — Class-conditioned screening is mandatory</h3>
+<p>Sequence/structure differences imply that cross-class pooled screening inflates false confidence and masks class-specific liabilities.</p>
+</section>
+<section id="insight-3-regulation-is-a-co-target-opportunity" class="level3">
+<h3 class="anchored" data-anchor-id="insight-3-regulation-is-a-co-target-opportunity">Insight 3 — Regulation is a co-target opportunity</h3>
+<p>KEGG links suggest that signaling modules can modulate resistance outcomes; catalytic-site-only interventions may be insufficient.</p>
+</section>
+<section id="insight-4-curation-gaps-are-opportunity-not-nuisance" class="level3">
+<h3 class="anchored" data-anchor-id="insight-4-curation-gaps-are-opportunity-not-nuisance">Insight 4 — Curation gaps are opportunity, not nuisance</h3>
+<p>Ontology misalignment is not just database noise. It highlights where mechanistic evidence can be converted into better pathway models and testable biology.</p>
+<hr>
+</section>
+</section>
+<section id="hypotheses-for-wet-lab-next-compute-validation" class="level2">
+<h2 class="anchored" data-anchor-id="hypotheses-for-wet-lab-next-compute-validation">7) Hypotheses for wet-lab / next-compute validation</h2>
+<ol type="1">
+<li><strong>H1 (medium-high):</strong> Reaction-ontology bridging (enzyme→reaction→compound→pathway) will increase pathway reconstruction recall for resistance modules.</li>
+<li><strong>H2 (medium):</strong> Perturbing two-component regulators shifts beta-lactam susceptibility even without beta-lactamase active-site mutations.</li>
+<li><strong>H3 (medium):</strong> Class-stratified inhibitor modeling outperforms pooled-class modeling on external assay benchmarks.</li>
+</ol>
+<hr>
+</section>
+<section id="what-day-2-will-improve" class="level2">
+<h2 class="anchored" data-anchor-id="what-day-2-will-improve">8) What Day 2 will improve</h2>
+<ul>
+<li>Add ortholog-aware pathway projection across Enterobacteriaceae.</li>
+<li>Add pocket-level quantitative descriptors (volume, polarity, metal propensity).</li>
+<li>Add class-aware assay harmonization before potency meta-analysis.</li>
+</ul>
+<p>If Day 1 had one message: <strong>mechanism first, pathway second, then intervention design.</strong></p>
 
 
 </section>
