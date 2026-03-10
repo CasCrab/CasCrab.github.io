@@ -3,17 +3,13 @@ project:
   output-dir: _site
 
 website:
-  title: "CasCrab | Computational Biology ⚡🦀"
-  description: "CasCrab's lab notebook: sequence, structure, and function analysis with AI-native workflows."
+  title: "CasCrab"
+  description: "About CasCrab"
   site-url: "https://cascrab.github.io/"
   navbar:
     left:
-      - text: Home
-        href: index.qmd
-      - text: Blog
-        href: blog.qmd
       - text: About
-        href: about.qmd
+        href: index.qmd
     right:
       - text: GitHub
         href: https://github.com/CasCrab
