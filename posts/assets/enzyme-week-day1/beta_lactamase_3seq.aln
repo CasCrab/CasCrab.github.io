@@ -1,0 +1,37 @@
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+sp|P28585|BLC1_ECOLX       MVKKSLRQFTLMATAT---------------------VTLLLGSVPLYAQTADVQQKLAE	39
+sp|Q5U7L7|BLBV2_ECOLX      MFK-LLSKLLVYLTASIMAIASPLAFSVDSSGEYPTVSEIPVGEVRLYQIADGVWSHIAT	59
+sp|P13661|BLO1_ECOLX       MKNTIHINFAIFL------IIANIIYSSASAS-----TDISTVASPLFEGTEGC------	43
+                           * :    :: :                            :      *:  : .       
+
+sp|P28585|BLC1_ECOLX       LERQSGGRLGVALINTADNSQILYRADERFAMCSTSKVMAVA---------------AVL	84
+sp|Q5U7L7|BLBV2_ECOLX      QSF-DGAVY-------PSNGLIVRDGDELLLIDTAWGAKNTA---------------ALL	96
+sp|P13661|BLO1_ECOLX       --------------------FLLYDASTNAEIAQFNKAKCATQMAPDSTFKIALSLMAFD	83
+                                                ::  ..    :     .  .:               *. 
+
+sp|P28585|BLC1_ECOLX       KKSESEPNLLNQRVEIKKSDLVNYNPIAEKHVDGTMSLAELSAAALQYSDNVAMNKLISH	144
+sp|Q5U7L7|BLBV2_ECOLX      AEIEKQI-----------------------------GLPVTRAVSTHFHD--------DR	119
+sp|P13661|BLO1_ECOLX       AEIIDQKTIFKWDKTPKGMEIWNSNHTPKT----WMQFSV-VWVSQEITQKIGLNKIKNY	138
+                            :  .:                               :     .: .  :        . 
+
+sp|P28585|BLC1_ECOLX       V-----GGPASVTAFARQLGDETFRLDRTE---P---------TLNTAIPGDPRDTTSPR	187
+sp|Q5U7L7|BLBV2_ECOLX      V-----GGVDVL----RAAGVATYASPSTRRLAE---------VEGNEIPTHSLEGLS--	159
+sp|P13661|BLO1_ECOLX       LKDFDYGNQDFSGDKERNNGLTEAWLESSLKISPEEQIQFLRKIINHNLPVKN------S	192
+                           :     *.        *  *        :                .  :* .        
+
+sp|P28585|BLC1_ECOLX       AMAQTLRNLTLGKAL-----------GDSQRAQ-LVTWMKGNTTGAASIQAGLPASWVV-	234
+sp|Q5U7L7|BLBV2_ECOLX      -------------SS-----------GDAVRFGPVELFYPGAAHSTDNLVVYVPSASVLY	195
+sp|P13661|BLO1_ECOLX       AIENTIENMYLQDLDNSTKLYGKTGAGFTANRTLQNGWFEGFIISKS-------------	239
+                                                     * : .      :  *   .               
+
+sp|P28585|BLC1_ECOLX       G-------DKTGSGDYGTTNDIAVIWPKDRAPLIL---VTYFTQPQPKAESRRDVLASAA	284
+sp|Q5U7L7|BLBV2_ECOLX      GGCAIYELSRTSAGNV--ADADLAEWPTSIERIQQHYPEAQFVIPGHGLPGGLDLLKHTT	253
+sp|P13661|BLO1_ECOLX       --GHKYVFVSALTGNLGSNLTSSIKAKKNAITILN-------------------------	272
+                                     : :*:            ..   :                           
+
+sp|P28585|BLC1_ECOLX       KIVTNGL------	291
+sp|Q5U7L7|BLBV2_ECOLX      NVVKAHTNRSVVE	266
+sp|P13661|BLO1_ECOLX       -----TLNL----	276
+                                        
