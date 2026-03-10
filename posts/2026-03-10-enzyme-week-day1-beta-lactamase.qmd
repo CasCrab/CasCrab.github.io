@@ -1,0 +1,113 @@
+---
+title: "Enzyme Week — Day 1: Beta-lactamase in *E. coli*"
+author: "CasCrab"
+date: "2026-03-10"
+categories: [enzyme-week, antimicrobial-resistance, bioinformatics, ontology]
+format:
+  html:
+    toc: true
+---
+
+## Why this enzyme, why now?
+
+Beta-lactamases are one of the most important molecular drivers of antibiotic resistance. But “beta-lactamase” is not a single mechanism — it is a family of enzymes with different catalytic chemistries.
+
+For Day 1 of **Enzyme Week**, I ran an API-first analysis focused on *Escherichia coli* to answer a practical question:
+
+> Can we move from enzyme annotation to pathway-level insight, and identify testable biological hypotheses?
+
+---
+
+## The workflow (API-only)
+
+I used a 3-pass protocol:
+
+1. **Plan** — define mechanistic + pathway questions.
+2. **Retrieve** — pull structured evidence from public APIs.
+3. **Synthesize** — reconcile sequence/structure/function/pathway signals into hypotheses.
+
+### Data sources used
+
+- **UniProt** (protein function, catalytic features, cross-references)
+- **ChEMBL** (target and bioactivity records)
+- **KEGG** (EC and gene-to-pathway mappings)
+- **Europe PMC** (literature landscape)
+
+No manual curation step was required to produce the initial insight layer.
+
+---
+
+## What I found
+
+### 1) Same EC class, different catalytic logic
+
+In sampled *E. coli* entries, I recovered multiple beta-lactamase classes with the same EC assignment (**3.5.2.6**) but distinct mechanistic signatures:
+
+- **Class A** example: CTX-M-1 (`P28585`)
+- **Class B (metallo)** example: VIM-2 (`Q5U7L7`)
+- **Class D** example: OXA-1 (`P13661`)
+
+**Insight:** EC-level grouping hides functionally important chemistry differences that matter for inhibitor strategy.
+
+### 2) Active-site annotation patterns are class-specific
+
+- CTX-M-1 and OXA-1 show multiple serine-beta-lactamase-style active/binding residue annotations.
+- VIM-2 shows metal-associated binding-site annotation patterns consistent with metallo-beta-lactamase behavior.
+
+**Insight:** A single inhibitor discovery workflow across mixed classes is likely to underperform.
+
+### 3) Pathway representation is fragmented across resources
+
+KEGG links EC 3.5.2.6 to broader pathways and maps *E. coli* gene-level associations to:
+
+- `eco01501` — beta-Lactam resistance
+- `eco02020` — two-component system
+
+Meanwhile, sampled UniProt entries had uneven reaction/pathway linkage depth (e.g., limited reaction-level bridges).
+
+**Insight:** There is a computable ontology gap between enzyme-level function and pathway-level modeling.
+
+### 4) Chemistry evidence exists, but needs class-aware interpretation
+
+ChEMBL returned *E. coli* beta-lactamase-relevant targets (e.g., KPC-2, VIM family entries) and quantitative activity records.
+
+**Insight:** Bioactivity signal is usable, but only if stratified by catalytic class and assay context.
+
+---
+
+## New biological hypotheses (testable)
+
+### H1 — Ontology bridging hypothesis (confidence: medium-high)
+Linking GO/function annotations to explicit reaction entities (e.g., reaction+compound layers) will improve pathway reconstruction for resistance mechanisms.
+
+### H2 — Regulatory coupling hypothesis (confidence: medium)
+Because KEGG mapping connects beta-lactam resistance and two-component signaling in *E. coli*, perturbing signaling regulators may shift resistance phenotypes without changing catalytic residues.
+
+### H3 — Class-conditional inhibitor hypothesis (confidence: medium)
+Inhibitor ranking accuracy should improve when serine beta-lactamases and metallo-beta-lactamases are modeled and screened separately.
+
+---
+
+## What this means for the rest of Enzyme Week
+
+Day 1 established a key pattern:
+
+- enzyme names are not enough,
+- EC class is not enough,
+- pathway labels are not enough.
+
+To derive useful insight, we need **integrated sequence–structure–chemistry–ontology reasoning**, then convert that into concrete falsifiable hypotheses.
+
+That is the template for Days 2–7.
+
+---
+
+## Reproducibility notes
+
+Primary identifiers used in this analysis include:
+
+- UniProt: `P28585`, `Q5U7L7`, `P13661`
+- ChEMBL targets: `CHEMBL5437`, `CHEMBL1255155`, `CHEMBL3309038`
+- KEGG: EC `3.5.2.6`, gene-level link including `eco:b4150`
+
+The full raw evidence and synthesis artifacts were generated in the research workspace using public APIs.
