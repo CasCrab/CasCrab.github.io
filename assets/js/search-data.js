@@ -16,6 +16,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/";
           },
+        },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
         },{id: "post-the-mitochondria-cleanup-switch-with-a-therapy-gap",
         
           title: "The Mitochondria Cleanup Switch With a Therapy Gap",
