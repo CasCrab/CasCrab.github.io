@@ -16,7 +16,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/";
           },
-        },{id: "post-a-parkinson-protein-with-many-partners-but-no-drug",
+        },{id: "post-the-mitochondria-cleanup-switch-with-a-therapy-gap",
+        
+          title: "The Mitochondria Cleanup Switch With a Therapy Gap",
+        
+        description: "PINK1 is central to mitochondrial cleanup in Parkinson biology, but direct targeting remains limited.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/pink1/";
+          
+        },
+      },{id: "post-a-parkinson-protein-with-many-partners-but-no-drug",
         
           title: "A Parkinson Protein With Many Partners but No Drug",
         
