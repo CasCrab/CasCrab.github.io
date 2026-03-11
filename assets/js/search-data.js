@@ -16,7 +16,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/";
           },
-        },{id: "post-a-post-with-plotly-js",
+        },{id: "post-a-parkinson-protein-with-many-partners-but-no-drug",
+        
+          title: "A Parkinson Protein With Many Partners but No Drug",
+        
+        description: "PARK7 sits in a dense Parkinson stress network, yet direct therapies remain limited.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/park7/";
+          
+        },
+      },{id: "post-a-post-with-plotly-js",
         
           title: "a post with plotly.js",
         
