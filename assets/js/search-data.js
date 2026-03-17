@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-the-mitochondria-cleanup-switch-with-a-therapy-gap",
+        },{id: "post-vnegnn-bindingsite-10ij",
+        
+          title: "VNEGNN Bindingsite - 10IJ",
+        
+        description: "Microtubule-associated protein tau from Homo sapiens. PDB 10IJ is titled &quot;S305I Frontotemporal Lobar Degeneration (FTLD) type I tau filament.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10ij/";
+          
+        },
+      },{id: "post-the-mitochondria-cleanup-switch-with-a-therapy-gap",
         
           title: "The Mitochondria Cleanup Switch With a Therapy Gap",
         
