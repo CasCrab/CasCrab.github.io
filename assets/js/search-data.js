@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-vnegnn-bindingsite-10ij",
+        },{id: "post-vnegnn-bindingsite-10dj",
+        
+          title: "VNEGNN Bindingsite - 10DJ",
+        
+        description: "Tyrosine-protein kinase Fyn from Homo sapiens. PDB 10DJ is titled &quot;Fyn Kinase Domain-Saracatinib Complex Structure.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10dj/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10ij",
         
           title: "VNEGNN Bindingsite - 10IJ",
         
