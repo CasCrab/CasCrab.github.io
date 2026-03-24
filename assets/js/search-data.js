@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-vnegnn-bindingsite-10dj",
+        },{id: "post-vnegnn-bindingsite-10qr",
+        
+          title: "VNEGNN Bindingsite - 10QR",
+        
+        description: "Transitional endoplasmic reticulum ATPase from Homo sapiens. PDB 10QR is titled &quot;Structure of human VCP/p97 hexamer bound to ADP (DMSO control).&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10qr/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10dj",
         
           title: "VNEGNN Bindingsite - 10DJ",
         
