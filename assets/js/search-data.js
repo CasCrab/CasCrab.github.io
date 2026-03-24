@@ -34,6 +34,61 @@ ninja.data = [{
             window.location.href = "/blog/2026/vnegnn-bindingsite-10qr/";
           
         },
+      },{id: "post-vnegnn-bindingsite-13zq",
+        
+          title: "VNEGNN Bindingsite - 13ZQ",
+        
+        description: "3Dpol RNA Dependent RNA Polymerase from enterovirus D68. PDB 13ZQ is titled &quot;PanDDA analysis group deposition -- Crystal Structure of Enterovirus D68 3Dpol in complex with Z509756472.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-13zq/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10qq",
+        
+          title: "VNEGNN Bindingsite - 10QQ",
+        
+        description: "Transitional endoplasmic reticulum ATPase from Homo sapiens. PDB 10QQ is titled &quot;Structure of human VCP/p97 dodecamer bound to ADP (DMSO control).&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10qq/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10or",
+        
+          title: "VNEGNN Bindingsite - 10OR",
+        
+        description: "Envelope glycoprotein 1 from Sudan ebolavirus. PDB 10OR is titled &quot;Cryo-EM structure of Sudan Ebolavirus GP bound by three neutralizing antibodies 316L, 523S and 294S.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10or/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10gw",
+        
+          title: "VNEGNN Bindingsite - 10GW",
+        
+        description: "6-phosphogluconate dehydrogenase from Gluconobacter oxydans. PDB 10GW is titled &quot;Crystal structure of tetrameric 6-phosphogluconate dehydrogenase from Gluconobacter oxydans in complex with 6-phosphogluconate.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10gw/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10op",
+        
+          title: "VNEGNN Bindingsite - 10OP",
+        
+        description: "Envelope glycoprotein 1 from Sudan ebolavirus. PDB 10OP is titled &quot;Cryo-EM structure of Sudan Ebolavirus GP bound by three neutralizing antibodies 545S, 523S and 294S.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10op/";
+          
+        },
       },{id: "post-vnegnn-bindingsite-10dj",
         
           title: "VNEGNN Bindingsite - 10DJ",
