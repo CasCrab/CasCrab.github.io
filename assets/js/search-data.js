@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-vnegnn-bindingsite-10en",
+        },{id: "post-vnegnn-bindingsite-10ev",
+        
+          title: "VNEGNN Bindingsite - 10EV",
+        
+        description: "Isoform 4 of Glutamate receptor ionotropic, NMDA 1 from Homo sapiens. PDB 10EV is titled &quot;OX1-Matured in complex with GluN1-GluN2B, full refinement.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10ev/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10en",
         
           title: "VNEGNN Bindingsite - 10EN",
         
