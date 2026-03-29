@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-vnegnn-bindingsite-10ey",
+        },{id: "post-vnegnn-bindingsite-10ez",
+        
+          title: "VNEGNN Bindingsite - 10EZ",
+        
+        description: "Glutamate receptor ionotropic, NMDA 1 from Homo sapiens. PDB 10EZ is titled &quot;SK3D-Germline in complex with GluN1-GluN2B, full refinement.&quot;",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/vnegnn-bindingsite-10ez/";
+          
+        },
+      },{id: "post-vnegnn-bindingsite-10ey",
         
           title: "VNEGNN Bindingsite - 10EY",
         
